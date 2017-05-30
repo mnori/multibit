@@ -1,5 +1,7 @@
 ### Introduction
 
+Hacked version with higher transaction fees and no QRcode dependency.
+
 MultiBit is a Simplified Payment Verification (SPV) Bitcoin desktop client.
 
 MultiBit is now in maintenance mode as it has largely been replaced by [MultiBit HD](https://multibit.org). To avoid confusion
