@@ -37,7 +37,7 @@ import javax.swing.SwingConstants;
 
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
-import org.multibit.qrcode.QRCodeGenerator;
+// import org.multibit.qrcode.QRCodeGenerator;
 import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.multibit.viewsystem.swing.view.panels.AbstractTradePanel;
 import org.multibit.viewsystem.swing.view.panels.HelpContentsPanel;
@@ -96,14 +96,16 @@ public class ZoomAction extends AbstractAction {
             int scaleWidth = (int) (mainFrameSize.getWidth() - WIDTH_DELTA);
             int scaleHeight = (int) (mainFrameSize.getHeight() - HEIGHT_DELTA);
 
-            QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(this.bitcoinController);
+            // QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(this.bitcoinController);
 
-            Image image = qrCodeGenerator.generateQRcode(address, amount, label, 1);
-            if (image != null) {
-                int scaleFactor = (int) (Math.floor(Math.min(scaleHeight / image.getHeight(null),
-                        scaleWidth / image.getWidth(null))));
-                image = qrCodeGenerator.generateQRcode(address, amount, label, scaleFactor);
-            }
+            // Image image = qrCodeGenerator.generateQRcode(address, amount, label, 1);
+            // if (image != null) {
+            //     int scaleFactor = (int) (Math.floor(Math.min(scaleHeight / image.getHeight(null),
+            //             scaleWidth / image.getWidth(null))));
+            //     image = qrCodeGenerator.generateQRcode(address, amount, label, scaleFactor);
+            // }
+
+            Image image = null;
 
             // Display the icon.
             JPanel iconPanel = new JPanel(new BorderLayout());

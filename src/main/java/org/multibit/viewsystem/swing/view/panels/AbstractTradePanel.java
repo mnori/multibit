@@ -29,8 +29,8 @@ import org.multibit.model.bitcoin.WalletAddressBookData;
 import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.bitcoin.WalletInfoData;
 import org.multibit.model.core.CoreModel;
-import org.multibit.qrcode.QRCodeEncoderDecoder;
-import org.multibit.qrcode.QRCodeGenerator;
+// import org.multibit.qrcode.QRCodeEncoderDecoder;
+// import org.multibit.qrcode.QRCodeGenerator;
 import org.multibit.store.MultiBitWalletVersion;
 import org.multibit.utils.ImageLoader;
 import org.multibit.utils.WhitespaceTrimmer;
@@ -161,7 +161,7 @@ public abstract class AbstractTradePanel extends JPanel implements Viewable, Cop
 
     private final AbstractTradePanel thisAbstractTradePanel;
 
-    private QRCodeGenerator qrCodeGenerator;
+    // private QRCodeGenerator qrCodeGenerator;
     
     private JScrollPane addressesScrollPane;
 
@@ -1500,25 +1500,25 @@ public abstract class AbstractTradePanel extends JPanel implements Viewable, Cop
      * Display the address, amount and label as a QR code.
      */
     public void displayQRCode(String address, String amount, String label) {
-        if (qrCodeGenerator == null) {
-            qrCodeGenerator = new QRCodeGenerator(this.bitcoinController);
-        }
-        try {
-            BufferedImage image = qrCodeGenerator.generateQRcode(address, amount, label);
-            ImageIcon icon;
-            if (image != null) {
-                icon = new ImageIcon(image);
-            } else {
-                icon = new ImageIcon();
-            }
-            if (qrCodeLabel != null) {
-                qrCodeLabel.setIcon(icon);
-                setDragLabelTextAndTooltip();
-            }
-        } catch (RuntimeException re) {
-            // QR code generation failed
-            log.error(re.getMessage(), re);
-        }
+        // if (qrCodeGenerator == null) {
+        //     qrCodeGenerator = new QRCodeGenerator(this.bitcoinController);
+        // }
+        // try {
+        //     BufferedImage image = qrCodeGenerator.generateQRcode(address, amount, label);
+        //     ImageIcon icon;
+        //     if (image != null) {
+        //         icon = new ImageIcon(image);
+        //     } else {
+        //         icon = new ImageIcon();
+        //     }
+        //     if (qrCodeLabel != null) {
+        //         qrCodeLabel.setIcon(icon);
+        //         setDragLabelTextAndTooltip();
+        //     }
+        // } catch (RuntimeException re) {
+        //     // QR code generation failed
+        //     log.error(re.getMessage(), re);
+        // }
     }
 
     public boolean processDroppedImage(Image image) {
@@ -1546,11 +1546,14 @@ public abstract class AbstractTradePanel extends JPanel implements Viewable, Cop
         ImageIcon icon = new ImageIcon(bufferedImage);
 
         // decode the QRCode to a String
-        QRCodeEncoderDecoder qrCodeEncoderDecoder = new QRCodeEncoderDecoder(image.getWidth(qrCodeLabel),
-                image.getHeight(qrCodeLabel));
+        // QRCodeEncoderDecoder qrCodeEncoderDecoder = new QRCodeEncoderDecoder(image.getWidth(qrCodeLabel),
+        //         image.getHeight(qrCodeLabel));
         log.debug("importData - 2.3");
 
-        String decodedString = qrCodeEncoderDecoder.decode(toBufferedImage(image, -1, -1));
+        // String decodedString = qrCodeEncoderDecoder.decode(toBufferedImage(image, -1, -1));
+
+        String decodedString = "nothing";
+        
         log.debug("importData - 3 - decodedResult = {}", decodedString);
         log.info("importData = decodedString = {}", decodedString);
         return processDecodedString(decodedString, icon);
